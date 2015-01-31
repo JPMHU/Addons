@@ -1,0 +1,9 @@
+## Interface: 11200
+## Title: FancyTrade
+## Notes: Contains a lot of functions
+## Author: Anaron
+## Version: 1.0.0
+## Dependencies:
+
+
+FancyTrade.lua

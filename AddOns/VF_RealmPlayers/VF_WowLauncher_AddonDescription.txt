@@ -1,0 +1,8 @@
+
+#Version=1.59
+#Description=* Fixed a bug with some pets not getting recorded.
+* Fixed wow version check to make sure this version is not being used on TBC(which it is not compatible with) (for TBC use VF_RealmPlayersTBC)
+* Fixed a serious bug that sometimes occurs if a user with multiple accounts are inspecting 2 players with same name right after eachother on 2 separate realms.
+* Changelog fix. If you downloaded several versions today(2015-01-14) Sorry for pushing many updates in a row. I wanted to make sure that everyone downloads the latest important patch and that proper changelog describes what changes have been made.
+#UpdateSubmitter=Dilatazu
+#UpdateImportance=|DefaultImportance=Critical|

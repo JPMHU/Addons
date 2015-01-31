@@ -1,0 +1,7 @@
+## Interface: 11200
+## Title: Burn
+## Notes: Ignite's friend
+## Version: 1
+## SavedVariables: Burn_r1, Burn_g1, Burn_b1, Burn_r2, Burn_g2, Burn_b2, Burn_rt, Burn_gt, Burn_bt, Burn_size, Burn_min
+## SavedVariablesPerCharacter: Burn_on
+Burn.xml

@@ -1,0 +1,45 @@
+Burn. by Smizzle.  Elune. Mostly Harmless.
+
+Why?
+
+Because we like to see things burn.  This mod was written for the purpose of helping us have more
+control over our ignites.  It does this by supplying information from the game about the ignite 
+event.  Using this you can, for example, time that all important fire blast when the ignite is about
+to roll off.  Hopefully it crits...  Also available is info about the owner, the tick and the total.
+Your remaining combustions are shown, and other mages popping it near you cause Burn to glow.
+Nearby fire crits cause Burn to flash; this is important when the stack reaches 5 ( discussed below ).
+And finally, there is a warning system in place so that if you near tank threat levels, you can send 
+a warning to other mages to STOP! FOR THE LOVE OF ALL THAT IS HOLY!
+
+You should know...
+
+Drag the mod by R-clicking in the info window when maximized, in the timer area when minimized.
+
+Any mage fire crits will cause Burn to flash.  If the owner of the ignite crits, Burn explodes.
+
+R-Clicking the top left button cycles the info window ( regular display, highest ticks, highest totals ).
+
+Burn only shows info for your target.
+
+Burn will set you message log distance to 50 meters.  
+
+
+When the stack reaches 5...
+
+Sadly, there are no more messages sent to us by the game at this point that tell us how to resync the timer.
+The solution Burn uses is to let you know that (a) the target is still ignited, and (b) someone else has just
+crit with a fire spell.  So at 5 stacks, you can expect to see that Burn is still lit up (target ignited), and
+periodic flashing (target crit with fire), but the timer is no longer active.  Also, "BURN" will be displayed
+in the timer area.
+
+Hope you enjoy...
+
+/burn :help
+/burn reset :center Burn
+/burn big :increase the size of Burn
+/burn small :duhh 
+/burn data :reset data (does this whenever the game is reloaded)
+/burn off : close Burn
+
+SMIZZLE fo SHIZZLE
+

@@ -1,0 +1,617 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+	<Script file="Burn.lua" />
+	
+	<Font name="BurnFont" font="Interface\Addons\Burn\Fonts\Burn_FRIZQT__.ttf" virtual="true" outline="NORMAL" >
+		<FontHeight><AbsValue val="7.0"/></FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="0.4" y="-0.4"/>
+			</Offset>
+		</Shadow>
+	
+	</Font>	
+	<Font name="BurnFontBold" font="Interface\Addons\Burn\Fonts\Burn_FRIZQT__.ttf"  virtual="true" outline="NORMAL">
+		<FontHeight><AbsValue val="8.0"/></FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="0.4" y="-0.4"/>
+			</Offset>
+		</Shadow>
+	</Font>	
+	
+	<Font name="BurnFontCurrentSmall" font="Interface\Addons\Burn\Fonts\Burn_FRIZQT__.ttf"  virtual="true" outline="NORMAL">
+		<FontHeight><AbsValue val="11"/></FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="0.4" y="-0.4"/>
+			</Offset>
+		</Shadow>
+	</Font>	
+	
+	<Font name="BurnFontCurrentLarge" font="Interface\Addons\Burn\Fonts\Burn_FRIZQT__.ttf"  virtual="true" outline="NORMAL">
+		<FontHeight><AbsValue val="16"/></FontHeight>
+		<Color r="1.0" g="1.0" b="1.0"/>
+		<Shadow>
+			<Offset>
+				<AbsDimension x="0.4" y="-0.4"/>
+			</Offset>
+		</Shadow>
+	</Font>		
+	
+
+		
+		
+
+	
+	<Frame name="BurnFrame" toplevel="true" parent="UIParent" enableMouse="true" movable="true">
+		<Size>
+			<AbsDimension x="128" y="128" />
+		</Size>
+		
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset>
+					<AbsDimension x="100" y="-100"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		
+		<Frames>
+			<Button name="$parentColor1pick" >
+				<Size>	<AbsDimension x="88" y="5" /> 	</Size>	
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="0" y="-12"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   	<OnLoad>
+				   		this:RegisterForClicks("RightButtonUp");
+     					</OnLoad>
+					<OnClick>
+						ColorPickerFrame:Show();
+						ColorPickerFrame.func = BurnCF1;
+    					 </OnClick>
+				</Scripts>
+			</Button>
+
+			<Button name="$parentColor2pick" >
+				<Size>	<AbsDimension x="110" y="5" /> 	</Size>	
+				<Anchors>
+					<Anchor point="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="35"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   	<OnLoad>
+				   		this:RegisterForClicks("RightButtonUp");
+     					</OnLoad>
+					<OnClick>
+						ColorPickerFrame:Show();
+						ColorPickerFrame.func = BurnCF2;
+    					 </OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentTextColorpick" >
+				<Size>	<AbsDimension x="100" y="10" /> 	</Size>	
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset>
+							<AbsDimension x="0" y="15"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   	<OnLoad>
+				   		this:RegisterForClicks("RightButtonUp");
+     					</OnLoad>
+					<OnClick>
+						ColorPickerFrame:Show();
+						ColorPickerFrame.func = TextCF;
+    					 </OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentStat" >
+				<Size>	<AbsDimension x="8" y="10" /> 	</Size>	
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="-51" y="-12"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   	<OnLoad>
+				   		this:RegisterForClicks("RightButtonUp");
+     					</OnLoad>
+					<OnClick>
+						ColorPickerFrame.func = Burn_CycleInfo();
+    					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentClose" >
+				<Size>	<AbsDimension x="8" y="10" /> 	</Size>	
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="51" y="-12"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   	<OnLoad>
+				   		this:RegisterForClicks("RightButtonUp");
+     					</OnLoad>
+					<OnClick>
+						BurnSlash("minmax");
+    					</OnClick>
+				</Scripts>
+			</Button>	
+			<Button name="$parentWarn" >
+				<Size>	<AbsDimension x="85" y="20" /> 	</Size>	
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="0" y="-15"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				   	<OnLoad>
+				   		this:RegisterForClicks("LeftButtonUp");
+     					</OnLoad>
+					<OnClick>
+						Burn_Warn();
+    					</OnClick>
+				</Scripts>
+			</Button>			
+		</Frames>		
+
+		
+		<Layers> 
+			<Layer level="BACKGROUND">
+		
+
+				<Texture name = "BurnguiMiddleBack" file="Interface\AddOns\Burn\Art\BurnguiMiddleBack" >
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>
+				<Texture name = "BurnguiMiddleBackmin" file="Interface\AddOns\Burn\Art\BurnguiMiddleBackMin" >
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>				
+				
+				<Texture name = "Burnshadow" file="Interface\AddOns\Burn\Art\Burnshadow" >
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>	
+				<Texture name = "Burnshadowmin" file="Interface\AddOns\Burn\Art\BurnshadowMin" >
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>				
+				
+				
+			</Layer>
+			<Layer level="BORDER">
+				<Texture name = "BurnguiMiddleBack1" file="Interface\AddOns\Burn\Art\BurnguiMiddleBack" alphaMode="ADD">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>
+				<Texture name = "BurnguiMiddleBackmin1" file="Interface\AddOns\Burn\Art\BurnguiMiddleBackMin" alphaMode="ADD">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>				
+				<Texture name = "BurnguiMiddleBack2" file="Interface\AddOns\Burn\Art\BurnguiMiddleBackStop" alphaMode="ADD">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>
+				<Texture name = "Burn_5_ignite" file="Interface\AddOns\Burn\Art\Burn_5_ignite" alphaMode="ADD">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>				
+				
+				
+				<Texture name = "Burn_Crit_5_1" file="Interface\AddOns\Burn\Art\Burn_Crit_5_2" alphaMode="BLEND">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>
+				<Texture name = "Burn_Crit_5_2" file="Interface\AddOns\Burn\Art\Burn_Crit_5_2" alphaMode="BLEND">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>
+
+				<Texture name = "Burn_Ignite_Splash" file="Interface\AddOns\Burn\Art\Burn_Ignite_Splash" alphaMode="BLEND">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>			
+			</Layer>	
+			
+			<Layer level="ARTWORK">
+				<Texture name = "Burnguicombust" file="Interface\AddOns\Burn\Art\BurnguiCombust">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+
+						</Anchor>
+					</Anchors>					
+				</Texture>
+
+				<Texture name = "Burnguicombustmin" file="Interface\AddOns\Burn\Art\BurnguiCombustMin">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+
+						</Anchor>
+					</Anchors>					
+				</Texture>				
+	
+				<Texture name = "BurnguiBar" file="Interface\AddOns\Burn\Art\BurnguiBar">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>			
+				<Texture name = "BurnguiMiddleIgnite" file="Interface\AddOns\Burn\Art\BurnguiMiddleIgnite">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						</Anchor>
+					</Anchors>					
+				</Texture>				
+			
+	
+				<Texture name = "BurnguiMiddleCombust" file="Interface\AddOns\Burn\Art\BurnguiMiddleCombust">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						</Anchor>
+					</Anchors>					
+				</Texture>
+				
+				<FontString name="BurningName" inherits="BurnFontCurrentLarge" justifyH="CENTER">
+					<Anchors>
+						<Anchor point="CENTER"> 
+							<Offset>
+								<AbsDimension x="0" y="13"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>	
+				<FontString name="BurningTickTitle" inherits="BurnFontCurrentSmall" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="LEFT"> 
+							<Offset>
+								<AbsDimension x="17" y="-2"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>	
+				<FontString name="BurningTick" inherits="BurnFontCurrentSmall" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT"> 
+							<Offset>
+								<AbsDimension x="-15" y="-2"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>				
+				<FontString name="BurningTotalTitle" inherits="BurnFontCurrentSmall" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="LEFT"> 
+							<Offset>
+								<AbsDimension x="17" y="-16"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>	
+				<FontString name="BurningTotal" inherits="BurnFontCurrentSmall" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT"> 
+							<Offset>
+								<AbsDimension x="-15" y="-16"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>					
+				
+				
+				
+				<FontString name="$parentNameTitle" inherits="BurnFont" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="LEFT"> 
+							<Offset>
+								<AbsDimension x="15" y="17"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>				
+				<FontString name="$parentTickTitle" inherits="BurnFont" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT"> 
+							<Offset>
+								<AbsDimension x="-43" y="17"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>	
+				<FontString name="$parentTotalTitle" inherits="BurnFont" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT"> 
+							<Offset>
+								<AbsDimension x="-13" y="17"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>					
+				<FontString name="$parentName1" inherits="BurnFontBold" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentNameTitle"> 
+							<Offset>
+								<AbsDimension x="0" y="-10"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTick1" inherits="BurnFontBold" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTickTitle"> 
+							<Offset>
+								<AbsDimension x="0" y="-10"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>				
+				<FontString name="$parentTotal1" inherits="BurnFontBold" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTotalTitle"> 
+							<Offset>
+								<AbsDimension x="0" y="-10"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>						
+				<FontString name="$parentName2" inherits="BurnFont" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentName1"> 
+							<Offset>
+								<AbsDimension x="0" y="-9"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTick2" inherits="BurnFont" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTick1"> 
+							<Offset>
+								<AbsDimension x="0" y="-9"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>				
+				<FontString name="$parentTotal2" inherits="BurnFont" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTotal1"> 
+							<Offset>
+								<AbsDimension x="0" y="-9"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentName3" inherits="BurnFont" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentName2"> 
+							<Offset>
+								<AbsDimension x="0" y="-8"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTick3" inherits="BurnFont" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTick2"> 
+							<Offset>
+								<AbsDimension x="0" y="-8"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>				
+				<FontString name="$parentTotal3" inherits="BurnFont" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTotal2"> 
+							<Offset>
+								<AbsDimension x="0" y="-8"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentName4" inherits="BurnFont" justifyH="LEFT">
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentName3"> 
+							<Offset>
+								<AbsDimension x="0" y="-8"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentTick4" inherits="BurnFont" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTick3"> 
+							<Offset>
+								<AbsDimension x="0" y="-8"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>				
+				<FontString name="$parentTotal4" inherits="BurnFont" justifyH="RIGHT">
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parentTotal3"> 
+							<Offset>
+								<AbsDimension x="0" y="-8"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+
+				
+			</Layer>
+
+			<Layer level="OVERLAY">
+			
+				<Texture name = "Burngui1" file="Interface\AddOns\Burn\Art\Burngui1" alphaMode="BLEND">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>	
+				<Texture name = "Burngui2" file="Interface\AddOns\Burn\Art\Burngui2" alphaMode="BLEND">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>
+
+				<Texture name = "Burnguimin1" file="Interface\AddOns\Burn\Art\Burngui1Min" alphaMode="BLEND">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>	
+				<Texture name = "Burnguimin2" file="Interface\AddOns\Burn\Art\Burngui2Min" alphaMode="BLEND">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>				
+				
+				<Texture name = "Burnguioptions" file="Interface\AddOns\Burn\Art\BurnguiOptions">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						
+						</Anchor>
+					</Anchors>					
+				</Texture>
+				<Texture name = "Burnguihelp1" file="Interface\AddOns\Burn\Art\Burnhelp1">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						<Offset>
+							<AbsDimension x="-64" y="64"/>
+						</Offset>						
+						</Anchor>
+					</Anchors>					
+				</Texture>	
+				<Texture name = "Burnguihelp2" file="Interface\AddOns\Burn\Art\Burnhelp2">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						<Offset>
+							<AbsDimension x="64" y="64"/>
+						</Offset>						
+						</Anchor>
+					</Anchors>					
+				</Texture>				
+				<Texture name = "Burnguihelp3" file="Interface\AddOns\Burn\Art\Burnhelp3">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						<Offset>
+							<AbsDimension x="-64" y="-64"/>
+						</Offset>						
+						</Anchor>
+					</Anchors>					
+				</Texture>							
+				<Texture name = "Burnguihelp4" file="Interface\AddOns\Burn\Art\Burnhelp4">
+					<Size>	<AbsDimension x="128" y="128" /> 	</Size>					
+					<Anchors>
+						<Anchor point="CENTER">
+						<Offset>
+							<AbsDimension x="64" y="-64"/>
+						</Offset>						
+						</Anchor>
+					</Anchors>					
+				</Texture>			
+			</Layer>
+	
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				Burn_Onload();
+			</OnLoad>
+			<OnMouseDown>
+				Burn_StartDragging();
+			</OnMouseDown>
+			<OnMouseUp>
+				Burn_StopDragging();
+			</OnMouseUp>
+			<OnHide>
+				Burn_StopDragging();
+			</OnHide>
+			<OnEvent>
+				Burn_OnEvent();
+			</OnEvent>
+			 <OnUpdate> Burn_OnUpdate(arg1); </OnUpdate>
+		</Scripts>
+	</Frame>
+</Ui>

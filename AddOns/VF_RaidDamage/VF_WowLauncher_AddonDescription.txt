@@ -1,0 +1,8 @@
+
+#Version=1.8.8
+#Description=*Fixed bug which caused addon to output duplicate error message more than once
+*Added some boss yells for Kel'Thuzad so that the fight can be recorded properly.
+*Majordomo Executus and 4HM should now track loot more accurately(if player with addon looks in the chest)
+*Fixed bug for fights versus: Instructor Razuvious, Patchwerk, Heigan the Unclean, Noth the Plaguebringer, Grand Widow Faerlina
+#UpdateSubmitter=Dilatazu
+#UpdateImportance=|DefaultImportance=Good|

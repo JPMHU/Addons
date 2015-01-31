@@ -1,0 +1,19 @@
+## Interface: 11200
+## Title: AutoInventory 2.0
+## Notes: Read the README.
+## Author: Anaron
+## Version: 2.0.0
+## Dependencies:
+
+## SavedVariablesPerCharacter: ItemsTable
+## SavedVariablesPerCharacter: ArmorSetsTable, ArmorSetsRegister
+## SavedVariablesPerCharacter: PersonalData
+
+
+## SavedVariables: ValueTable
+## SavedVariables: GlobalData
+
+
+AutoInventory2.lua
+AutoInventory2.xml
+ArynasFunctions.lua

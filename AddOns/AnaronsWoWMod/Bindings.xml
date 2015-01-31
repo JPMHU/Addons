@@ -1,0 +1,46 @@
+<Bindings>
+	<Binding name="Show AWM UI" header="ANARONSWOWMOD">
+		AWMToggleMainMenu()
+	</Binding>
+	<Binding name="Show Buff Search Menu">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMBuffSearchMenu)
+	</Binding>
+	<Binding name="Show Missing Buff Search Menu">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMMissingBuffSearchMenu)
+	</Binding>
+	<Binding name="Show Advanced Buff Search Menu">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMCustomRaidSearchMenu)	
+	</Binding>
+	<Binding name="Gear Check">
+		DoGearCheck()
+	</Binding>
+	<Binding name="Ready Check">
+		DoReadyCheck()
+	</Binding>
+	<Binding name="Show Ready Check Results">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMReadyCheckMenu)
+	</Binding>
+	<Binding name="Request Summon">
+		SendAddonMessage('AWMSummon','REQUEST','RAID')
+	</Binding>
+	<Binding name="Show Summon Menu">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMSummonMenu)
+	</Binding>
+	<Binding name="Show Scrub List">
+		ShowUIPanel(AWMMainMenu)
+		ShowUIPanel(AWMScrubListMenu)
+	</Binding>
+	<Binding name="Show Missing Buffs (not finished)" runOnUp="true">
+		if ( keystate == "down" ) then
+			AWMMissingBuffActive = true
+		else
+			AWMMissingBuffActive = false
+		end
+	</Binding>
+	
+</Bindings>
